@@ -37,7 +37,7 @@ Basic understanding of [OpenAPI Specification](https://github.com/OAI/OpenAPI-Sp
 
   * File Name: **{your-initials}**_employee_api_spec
 
-  * URL: [http://playground.apistudio.io/070cde0a-44f7-4e2c-8085-6e1020db7baf/spec](http://playground.apistudio.io/070cde0a-44f7-4e2c-8085-6e1020db7baf/spec)
+  * URL: [http://playground.apistudio.io/67f307b6-7b55-457d-91a7-6ed5e7210ce2/spec](http://playground.apistudio.io/67f307b6-7b55-457d-91a7-6ed5e7210ce2/spec)
 
 ![image alt text](./media/image_2.png)
 
