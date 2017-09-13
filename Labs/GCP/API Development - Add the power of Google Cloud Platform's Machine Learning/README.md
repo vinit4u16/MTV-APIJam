@@ -33,26 +33,26 @@ In this lab we will exactly see how we would do that. Many of the ML APIs have a
 
 ## Select existing Employees API
 
-1. Go to [https://apigee.com/edge](https://apigee.com/edge) and log in. This is the Edge management UI. 
+* Go to [https://apigee.com/edge](https://apigee.com/edge) and log in. This is the Edge management UI. 
 
-2. Select **Develop → API Proxies** in the side navigation menu.
+* Select **Develop → API Proxies** in the side navigation menu.
 
 ![image alt text](./media/image_1.jpg)
 
-3. Click on the proxy you created before and click on the flow for the "POST" method.
+* Click on the proxy you created before and click on the flow for the "POST" method.
 
 ![image alt text](./media/image_2.png)
 
 
 ## We now need to get a valid token to invoke the ML(DLP) API Use a Service Callout Policy
 
-4. Add the policy from the conditional POST flow.
+* Add the policy from the conditional POST flow.
 
 ![image alt text](./media/image_3.png)
 
 ![image alt text](./media/image_4.png)
 
-5. Modify the policy to reflect a request with the appropriate query parameters for the API that will grant a valid token to invoke the ML APIs.
+* Modify the policy to reflect a request with the appropriate query parameters for the API that will grant a valid token to invoke the ML APIs. Literally copy the below snippet and paste it over the above policy XML config.
 
 ```
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -76,7 +76,7 @@ We are fetching an auth response and storing it in a variable named **gcpAuthRes
 
 ## Prepare the request body for invoking the ML API
 
-1. Click on **+ Step** and add a policy right next to the previous one.
+* Click on **+ Step** and add a policy right next to the previous one.
 
 ![image alt text](./media/image_5.png)
 
@@ -86,7 +86,7 @@ Scroll down the policy list and select **Java script**
 
 Then click on **Add** button.
 
-2. Update the java script file under resources with the below snippet of code.
+* Update the java script file under resources with the below snippet of code.
 ![image alt text](./media/image_7.png)
 
 ```
@@ -106,7 +106,7 @@ In a nutshell the above javascript simply extracts the token parsing through the
 
 ## Invoke the DLP ML API using the service callout policy passing the token extracted from the above step.
 
-3. Click on **+ Step**
+* Click on **+ Step**
 
 ![image alt text](./media/image_8.png)
 
@@ -117,7 +117,7 @@ Scroll down the policy list and select **Extract Variables** and update the defa
 
 Then click on **Add**.
 
-4. Update the policy with the below code snippet
+* Update the policy with the below code snippet
 
 ```
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -174,7 +174,7 @@ In the above case we are telling the ML API to identify any fields that might ma
 
 ## Extract the results of the DLP ML API which would have obfuscated sensitive data and send the protected data to the backend.
 
-5. Click on **+ Step**
+* Click on **+ Step**
 
 ![image alt text](./media/image_11.png)
 
@@ -182,7 +182,7 @@ Scroll down the policy list and select **Javascript** and update the default dis
 
 ![image alt text](./media/image_12.png)
 
-6. Select the newly created script file and add the following code:
+* Select the newly created script file and add the following code:
 
 ![image alt text](./media/image_13.png)
 
@@ -223,3 +223,32 @@ Make a POST call to the employees API and send some payload like the below -
 
 As you can see above how using the DLP ML API we can protect sensitive information through and from our systems.
 
+# Lab Video
+
+If you like to learn by watching, we'll be adding a video soon.
+
+# Earn Extra-points
+
+You may have noticed that we use a service callout to get an auth token from GCP. Now since these tokens are valid for several minutes can you think of a way to make this more performant. Hint - Think about caching..!
+
+# Quiz
+
+1. We are harcoding a bunch of configuration in the service callout to the ML API. What is the best way to externalize these configs?
+
+2. In this lab we used javascript to extract content from the responses and set them as flow variables. Can you think of an alternative way of doing that through an Apigee policy? Which policy in particular would you use?
+
+# Summary
+
+That completes this hands-on lesson. In this lab you learned how can we leverage the power of Machine Learning API - Data Loss Prevention and further protect your APIs. Refer to the links in the "Use Case" section for more details.
+
+# References
+
+* Useful Apigee documentation links on the policies we used  - 
+
+    * [Service Callout Policy](http://docs.apigee.com/api-services/reference/service-callout-policy) 
+
+    * [JavaScript Policy](http://docs.apigee.com/api-services/reference/javascript-policy)
+
+# Rate this lab
+
+How did you like this lab? Rate [here (Coming Soon)](https://goo.gl/forms/).
