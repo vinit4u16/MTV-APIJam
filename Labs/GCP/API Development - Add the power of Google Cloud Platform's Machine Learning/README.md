@@ -110,7 +110,6 @@ In a nutshell the above javascript simply extracts the token parsing through the
 
 ![image alt text](./media/image_8.png)
 
-Scroll down the policy list and select **Extract Variables** and update the default display name to **Extract Geocodes**
 
 ![image alt text](./media/image_9.png)
 ![image alt text](./media/image_10.png)
