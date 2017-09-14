@@ -65,7 +65,7 @@ In this lab we will exactly see how we would do that. Many of the ML APIs have a
     <Response>gcpAuthResponse</Response>
     <HTTPTargetConnection>
         <Properties/>
-        <URL>https://apijamgcp-trial-test.apigee.net/gcpauth/token</URL>
+        <URL><&lt;url_supplied_by_instructor&gt;></URL>
     </HTTPTargetConnection>
 </ServiceCallout>
 
